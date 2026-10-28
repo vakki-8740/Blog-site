@@ -10,6 +10,8 @@ export function BrandMark({ small = false }) {
   )
 }
 
+const publicUrl = window.location.hostname.includes('admin') ? 'https://blog-site-vakki-8740s-projects.vercel.app' : '/'
+
 export function Header({ theme, onToggleTheme, admin = false }) {
   return (
     <header className="site-header">
@@ -28,7 +30,7 @@ export function Header({ theme, onToggleTheme, admin = false }) {
         <div className="header-actions">
           <IconButton icon={theme === 'dark' ? 'sun' : 'moon'} label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'} variant="ghost" onClick={onToggleTheme} />
           <span className="header-divider" />
-          <a className={`admin-link${admin ? ' is-current' : ''}`} href={admin ? '/' : '/admin'}>
+          <a className={`admin-link${admin ? ' is-current' : ''}`} href={admin ? publicUrl : '/admin'}>
             <Icon name={admin ? 'arrow-left' : 'lock'} size={15} />
             <span>{admin ? 'View post' : 'Admin'}</span>
           </a>

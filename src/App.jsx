@@ -4,7 +4,7 @@ import { Header } from './components/Shared.jsx'
 import PublicPage from './components/PublicPage.jsx'
 import AdminPage from './components/AdminPage.jsx'
 
-const isAdminPage = window.location.pathname.replace(/\/+$/, '') === '/admin'
+const isAdminPage = window.location.hostname.includes('admin') || window.location.pathname.replace(/\/+$/, '') === '/admin'
 
 export default function App() {
   const [theme, setTheme] = useState(() => document.documentElement.dataset.theme === 'light' ? 'light' : 'dark')
